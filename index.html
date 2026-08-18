@@ -226,11 +226,13 @@
         </g>
       </a>
 
-      <g class="node-g g2">
-        <rect class="n-box soon" x="270" y="216" width="180" height="52" rx="3"/>
-        <text class="n-label" x="360" y="236" style="fill:var(--ink-dim)">tikz</text>
-        <text class="n-sub" x="360" y="254">SOON</text>
-      </g>
+      <a class="node" href="https://tikz.busypizza.bond" aria-label="TikZ Generator — live">
+        <g class="node-g g2">
+          <rect class="n-box live" x="270" y="216" width="180" height="52" rx="3"/>
+          <text class="n-label" x="360" y="236">tikz</text>
+          <text class="n-sub on" x="360" y="254">LIVE</text>
+        </g>
+      </a>
 
       <g class="node-g g3">
         <rect class="n-box soon" x="489" y="216" width="180" height="52" rx="3"/>
@@ -253,15 +255,16 @@
       </a>
     </li>
 
-    <li class="tool pending">
-      <div class="tool-in">
+    <li class="tool">
+      <a class="tool-in" href="https://tikz.busypizza.bond">
         <span class="t-name">TikZ Generator</span>
-        <span><span class="chip soon">Soon</span></span>
+        <span><span class="chip live"><span class="dot"></span>Live</span> <span class="t-arrow">→</span></span>
         <p class="t-desc">Thirty-plus drawing tools — shapes, circuit symbols, logic gates —
-        with pressure-sensitive Apple Pencil input and live TikZ preview. Draw the figure,
-        get the LaTeX.
+        with pressure-sensitive Apple Pencil input. The LaTeX comes from where things sit on
+        the canvas, so it is instant and matches exactly what you drew. Previews compile in
+        the browser.
         <span class="t-host">tikz.busypizza.bond</span></p>
-      </div>
+      </a>
     </li>
 
     <li class="tool pending">
@@ -283,7 +286,7 @@
 
   root     [label=<span class="s">"busypizza.bond"</span>];
   graphviz [label=<span class="s">"graphviz"</span>, color=<span class="s">"#5FC9B0"</span>];
-  tikz     [label=<span class="s">"tikz"</span>,     style=dashed];
+  tikz     [label=<span class="s">"tikz"</span>,     color=<span class="s">"#5FC9B0"</span>];
   speech   [label=<span class="s">"speech"</span>,   style=dashed];
 
   root -&gt; { graphviz tikz speech };
