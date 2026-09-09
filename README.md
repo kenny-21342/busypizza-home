@@ -8,14 +8,19 @@ One Vercel project per tool, each on its own subdomain:
 
 | Host | Project | Status |
 |---|---|---|
-| `busypizza.bond` | this repo | to deploy |
-| `www.busypizza.bond` | this repo (redirect to apex) | to deploy |
-| `graphviz.busypizza.bond` | `graphviz-generator` | already deployed, needs the domain attached |
-| `tikz.busypizza.bond` | `tikz-generator` | after 6 Sep |
-| `speech.busypizza.bond` | TTS site | after 22 Sep |
+| `busypizza.bond` | this repo | deployed |
+| `www.busypizza.bond` | this repo (redirect to apex) | deployed |
+| `study.busypizza.bond` | `smart-edu` (YKPao Study) | live |
+| `tts.busypizza.bond` | `tts-site` (Shanghainese TTS) | live |
+| `graphviz.busypizza.bond` | `graphviz-generator` | live |
+| `tikz.busypizza.bond` | `tikz-generator` | live |
 
-YKPao Study is deliberately **not** listed here. It holds student work behind auth;
-share its URL with the cohort directly rather than advertising the login page publicly.
+YKPao Study is the featured item on the page. Its link goes to the site root, which
+is a NextAuth login wall for anyone not signed in — student work stays behind that
+login, and nothing beyond the product name is exposed by listing it.
+
+`speech.busypizza.bond` was the planned TTS host and was never used; the tool
+shipped on `tts.busypizza.bond` instead. That host 404s.
 
 ## Setup, in order
 
@@ -59,14 +64,12 @@ Vercel issues the TLS certificate automatically once DNS resolves.
 
 ## Adding a tool later
 
-Two edits in `index.html`:
+One edit in `index.html`: copy an existing `<li class="tool">` block, paste it into
+`<ul class="tools">`, and change four things — the `href`, the `.t-name`, the
+`.t-desc` text, and the `.t-host` line.
 
-1. The `<svg class="dg">` block — change that node's `class="n-box soon"` to
-   `n-box live`, its `SOON` label to `LIVE`, and wrap the `<g>` in
-   `<a class="node" href="https://…">`.
-2. The matching `<li class="tool pending">` — drop `pending`, swap the `chip soon`
-   span for `chip live`, and change the `<div class="tool-in">` to
-   `<a class="tool-in" href="…">`.
+To make a tool the featured one instead, move it into the `<a class="featured">`
+block near the top and demote the current occupant to a list item.
 
 ## Notes
 
